@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,7 +5,6 @@ namespace Ball
 {
     public class Ball : MonoBehaviour
     {
-        [SerializeField] private GameObject ballPrefab;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float speed;
         
@@ -14,12 +12,7 @@ namespace Ball
         {
             Launch();
         }
-
-        private void Update()
-        {
-            SpawnBall();
-        }
-
+        
         private void Launch()
         {
             var x = Random.Range(1, -1f);
@@ -27,14 +20,5 @@ namespace Ball
 
             rb.velocity = new Vector2(speed * x, speed * y);
         }
-        
-        private void SpawnBall()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Instantiate(ballPrefab, Vector3.zero, Quaternion.identity);
-            }
-        }
-
     }
 }

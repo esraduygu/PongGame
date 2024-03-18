@@ -1,28 +1,33 @@
 using UnityEngine;
 
-public class PlayerBehavior : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private KeyCode upKey;
-    [SerializeField] private KeyCode downKey;
-    [SerializeField] private float speed;
-
-    private void Update()
+    public class PlayerBehavior : MonoBehaviour
     {
-        Move();
-    }
+        [SerializeField] private KeyCode upKey;
+        [SerializeField] private KeyCode downKey;
+        [SerializeField] private float speed;
+        [SerializeField] private float yLimit;
 
-    private void Move()
-    {
-        float moveDirection = 0;
-        if (Input.GetKey(upKey))
+        private void Update()
         {
-            moveDirection = -1f;
+            Move();
         }
-        else if (Input.GetKey(downKey))
+
+        private void Move()
         {
-            moveDirection = 1f;
-        }
+            float moveDirection = 0;
+            if (Input.GetKey(upKey) && transform.position.y < yLimit)
+            {
+                moveDirection = 1f;
+            }
+            else if (Input.GetKey(downKey) && transform.position.y > -yLimit)
+            {
+                moveDirection = -1f;
+            }
         
-        transform.Translate(Vector3.up * (moveDirection * speed * Time.deltaTime));
+            transform.Translate(Vector3.up * (moveDirection * speed * Time.deltaTime));
+        }
     }
 }
+
