@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acad75644a7afa84dbd29ee45086a73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxManager: {fileID: 0}
   rb: {fileID: 6688883376396824959}
   speed: 200
 --- !u!50 &6688883376396824959

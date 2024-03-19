@@ -12,7 +12,8 @@ namespace Core
             Score = 2,
             Paddle = 3
         }
-        
+
+        [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<AudioClip> clips;
 
         private Vector3 _cameraPosition;
@@ -27,7 +28,7 @@ namespace Core
         {
             foreach (var sfxType in sfxTypes)
             {
-                AudioSource.PlayClipAtPoint(clips[(int)sfxType], _cameraPosition);
+                audioSource.PlayOneShot(clips[(int)sfxType]);
             }
         }
     }
