@@ -10,15 +10,25 @@ namespace Ball
         
         private void Start()
         {
-            Launch();
+            ResetPosition();
+        }
+        
+        public void ResetPosition()
+        {
+            rb.position = Vector2.zero;
+            rb.velocity = Vector2.zero;
+            
+            Invoke(nameof(Launch), 0.5f);
         }
         
         private void Launch()
         {
-            var x = Random.Range(1, -1f);
-            var y = Random.Range(1, -1f);
+            var x = Random.value < 0.5f ? -1f : 1f;
+            var y = Random.value < 0.5f ? Random.Range(-1f, -.5f) : Random.Range(.5f, 1f);
 
-            rb.velocity = new Vector2(speed * x, speed * y);
+            var direction = new Vector2(x, y);
+            rb.AddForce(direction * speed);
         }
+
     }
 }

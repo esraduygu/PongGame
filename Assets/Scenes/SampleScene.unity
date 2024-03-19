@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 160434734}
   - component: {fileID: 160434733}
   - component: {fileID: 160434735}
-  - component: {fileID: 160434736}
   m_Layer: 0
   m_Name: TopWall
   m_TagString: Untagged
@@ -352,7 +351,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 160434732}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 745d2c46959a91447b4afcf469ac2574, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -388,33 +387,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &160434736
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160434732}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &252263051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1532,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 916163573}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 35c8eb29f306b3d4496b66b48b8acea3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1607,7 +1579,6 @@ GameObject:
   - component: {fileID: 952743675}
   - component: {fileID: 952743674}
   - component: {fileID: 952743676}
-  - component: {fileID: 952743677}
   m_Layer: 0
   m_Name: BottomWall
   m_TagString: Untagged
@@ -1691,7 +1662,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 952743673}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 745d2c46959a91447b4afcf469ac2574, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1727,33 +1698,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &952743677
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952743673}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1017615738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,6 +2335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ef998562af5484897b715a85558640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: {fileID: 2075094131}
   playerOneScoreText: {fileID: 252263053}
   playerTwoScoreText: {fileID: 134101987}
   playerOneScore: 0
@@ -2652,7 +2597,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1929462960}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 35c8eb29f306b3d4496b66b48b8acea3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2688,6 +2633,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1671371, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2075094131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8290067558652587959, guid: 32bb4652410c8bb4ebb0b5c23d562533, type: 3}
+  m_PrefabInstance: {fileID: 3105555347570322323}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acad75644a7afa84dbd29ee45086a73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2138958495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,12 +2785,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6688883376396824959, guid: 32bb4652410c8bb4ebb0b5c23d562533, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688883376396824959, guid: 32bb4652410c8bb4ebb0b5c23d562533, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688883376396824959, guid: 32bb4652410c8bb4ebb0b5c23d562533, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8290067558652587959, guid: 32bb4652410c8bb4ebb0b5c23d562533, type: 3}
       propertyPath: speed
-      value: 20
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

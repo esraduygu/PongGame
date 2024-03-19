@@ -5,6 +5,7 @@ namespace Score
 {
    public class ScoreManager : MonoBehaviour
    {
+      [SerializeField] private Ball.Ball ball;
       [SerializeField] private TMP_Text playerOneScoreText;
       [SerializeField] private TMP_Text playerTwoScoreText;
 
@@ -17,11 +18,13 @@ namespace Score
          {
             playerOneScore++;
             UpdateScoreText(playerOneScoreText, playerOneScore);
+            ball.ResetPosition();
          }
          else if (playerNumber == 2)
          {
             playerTwoScore++;
             UpdateScoreText(playerTwoScoreText, playerTwoScore);
+            ball.ResetPosition();
          }
       }
    
