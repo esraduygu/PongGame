@@ -10,6 +10,8 @@ namespace Player
         [SerializeField] private float speed;
         [SerializeField] private float yLimit;
 
+        private float _delta;
+        
         private void Awake()
         {
             paddleDrag.OnDrag = OnPaddleDrag;
@@ -17,17 +19,19 @@ namespace Player
 
         private void OnPaddleDrag(float delta)
         {
-            var newPos = Mathf.Clamp(transform.position.y + delta, -yLimit, yLimit);
-            
-            transform.position = new Vector3(transform.position.x, newPos, transform.position.z);
+            _delta += delta;
         }
 
         private void Update()
         {
             Move();
-            // MoveToDragPos();
         }
 
+        private void LateUpdate()
+        {
+            MoveByDelta();
+        }
+        
         private void Move()
         {
             var moveDirection = 0f;
@@ -42,6 +46,17 @@ namespace Player
             }
             
             transform.Translate(Vector3.up * (moveDirection * speed * Time.deltaTime));
+        }
+        
+        private void MoveByDelta()
+        {
+            var maxDelta = speed * Time.deltaTime;
+            var limitedDelta = Mathf.Clamp(_delta, -maxDelta, maxDelta);
+            var newPos = Mathf.Clamp(transform.position.y + limitedDelta, -yLimit, yLimit);
+            
+            transform.position = new Vector3(transform.position.x, newPos, transform.position.z);
+            
+            _delta -= limitedDelta;
         }
     }
 }
