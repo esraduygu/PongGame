@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -5,6 +6,7 @@ namespace Ball
 {
     public class Ball : MonoBehaviour
     {
+        [SerializeField] private SfxManager sfxManager;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float speed;
         
@@ -30,5 +32,18 @@ namespace Ball
             rb.AddForce(direction * speed);
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Paddle"))
+            {
+                sfxManager.PlaySound(SfxManager.SfxType.Paddle);
+            }
+            
+            if (collision.gameObject.CompareTag("Wall"))
+            {
+                sfxManager.PlaySound(SfxManager.SfxType.Wall);
+            }
+            
+        }
     }
 }

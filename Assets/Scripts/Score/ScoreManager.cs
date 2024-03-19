@@ -1,3 +1,4 @@
+using Core;
 using TMPro;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ namespace Score
 {
    public class ScoreManager : MonoBehaviour
    {
+      [SerializeField] private SfxManager sfxManager;
       [SerializeField] private Ball.Ball ball;
       [SerializeField] private TMP_Text playerOneScoreText;
       [SerializeField] private TMP_Text playerTwoScoreText;
@@ -18,12 +20,14 @@ namespace Score
          {
             playerOneScore++;
             UpdateScoreText(playerOneScoreText, playerOneScore);
+            sfxManager.PlaySound(SfxManager.SfxType.Score);
             ball.ResetPosition();
          }
          else if (playerNumber == 2)
          {
             playerTwoScore++;
             UpdateScoreText(playerTwoScoreText, playerTwoScore);
+            sfxManager.PlaySound(SfxManager.SfxType.Score);
             ball.ResetPosition();
          }
       }
