@@ -11,7 +11,8 @@ namespace Player
         [SerializeField] private float yLimit;
 
         private float _delta;
-        
+        private float _posBeforeFrame;
+
         private void Awake()
         {
             paddleDrag.OnDrag = OnPaddleDrag;
@@ -21,15 +22,21 @@ namespace Player
         {
             _delta += delta;
         }
-
+        
         private void Update()
         {
+            _posBeforeFrame = transform.position.y;
+            
             Move();
         }
 
         private void LateUpdate()
         {
             MoveByDelta();
+
+            var delta = Mathf.Abs(_posBeforeFrame - transform.position.y);
+            if (delta > (speed * Time.deltaTime) + 0.01f)
+                Debug.Log($"Delta this frame: {delta} Limit: {speed * Time.deltaTime}");
         }
         
         private void Move()
