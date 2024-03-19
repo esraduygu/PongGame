@@ -8,9 +8,7 @@ namespace Player
         [SerializeField] private KeyCode downKey;
         [SerializeField] private float speed;
         [SerializeField] private float yLimit;
-
-        private float _moveDirection;
-      
+        
 
         private void Update()
         {
@@ -19,16 +17,18 @@ namespace Player
 
         private void Move()
         {
+            var moveDirection = 0f;
+            
             if (Input.GetKey(upKey) && transform.position.y < yLimit)
             {
-                _moveDirection = 1f;
+                moveDirection = 1f;
             }
             else if (Input.GetKey(downKey) && transform.position.y > -yLimit)
             {
-                _moveDirection = -1f;
+                moveDirection = -1f;
             }
             
-            transform.Translate(Vector3.up * (_moveDirection * speed * Time.deltaTime));
+            transform.Translate(Vector3.up * (moveDirection * speed * Time.deltaTime));
         }
 
         private void OnMouseDrag()
