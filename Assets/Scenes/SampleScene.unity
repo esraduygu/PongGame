@@ -1812,7 +1812,7 @@ MonoBehaviour:
   paddleDrag: {fileID: 184177249}
   upKey: 119
   downKey: 115
-  speed: 10
+  speed: 15
   yLimit: 4.65
 --- !u!50 &916163577
 Rigidbody2D:
@@ -2878,7 +2878,7 @@ MonoBehaviour:
   paddleDrag: {fileID: 32756786}
   upKey: 273
   downKey: 274
-  speed: 10
+  speed: 15
   yLimit: 4.65
 --- !u!50 &1929462964
 Rigidbody2D:

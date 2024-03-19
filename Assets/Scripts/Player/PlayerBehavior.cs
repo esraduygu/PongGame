@@ -15,17 +15,17 @@ namespace Player
             paddleDrag.OnDrag = OnPaddleDrag;
         }
 
-        private void OnPaddleDrag(Vector2 mousePosition)
+        private void OnPaddleDrag(float delta)
         {
-            mousePosition.y = Mathf.Clamp(mousePosition.y, -yLimit, yLimit);
+            var newPos = Mathf.Clamp(transform.position.y + delta, -yLimit, yLimit);
             
-            transform.position = new Vector3(transform.position.x, mousePosition.y, transform.position.z);
-            
+            transform.position = new Vector3(transform.position.x, newPos, transform.position.z);
         }
 
         private void Update()
         {
             Move();
+            // MoveToDragPos();
         }
 
         private void Move()
