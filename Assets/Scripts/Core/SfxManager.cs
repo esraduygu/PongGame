@@ -15,14 +15,6 @@ namespace Core
 
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<AudioClip> clips;
-
-        private Vector3 _cameraPosition;
-        
-        private void Awake()
-        {
-            if (Camera.main != null) 
-                _cameraPosition = Camera.main.transform.position;
-        }
         
         public void PlaySound(params SfxType[] sfxTypes)
         {
