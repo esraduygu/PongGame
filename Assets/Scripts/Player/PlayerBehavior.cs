@@ -9,6 +9,9 @@ namespace Player
         [SerializeField] private float speed;
         [SerializeField] private float yLimit;
 
+        private float _moveDirection;
+      
+
         private void Update()
         {
             Move();
@@ -16,17 +19,26 @@ namespace Player
 
         private void Move()
         {
-            float moveDirection = 0;
             if (Input.GetKey(upKey) && transform.position.y < yLimit)
             {
-                moveDirection = 1f;
+                _moveDirection = 1f;
             }
             else if (Input.GetKey(downKey) && transform.position.y > -yLimit)
             {
-                moveDirection = -1f;
+                _moveDirection = -1f;
             }
-        
-            transform.Translate(Vector3.up * (moveDirection * speed * Time.deltaTime));
+            
+            transform.Translate(Vector3.up * (_moveDirection * speed * Time.deltaTime));
+        }
+
+        private void OnMouseDrag()
+        {
+            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+            mousePosition.y = Mathf.Clamp(mousePosition.y, -yLimit, yLimit);
+            
+            transform.position = new Vector3(transform.position.x, mousePosition.y, transform.position.z);
+            
         }
     }
 }
