@@ -1,14 +1,12 @@
-using TMPro;
+using Core;
 using UnityEngine;
 
 namespace Score
 {
    public class ScoreManager : MonoBehaviour
    {
+      [SerializeField] private UIManager uiManager;
       [SerializeField] private Ball.Ball ball;
-      [SerializeField] private TMP_Text playerOneScoreText;
-      [SerializeField] private TMP_Text playerTwoScoreText;
-
       [SerializeField] private int playerOneScore;
       [SerializeField] private int playerTwoScore;
    
@@ -17,28 +15,23 @@ namespace Score
          if (playerNumber == 1)
          {
             playerOneScore++;
-            UpdateScoreText(playerOneScoreText, playerOneScore);
+            uiManager.UpdateScoreText(playerNumber, playerOneScore);
             ball.ResetPosition();
          }
          else if (playerNumber == 2)
          {
             playerTwoScore++;
-            UpdateScoreText(playerTwoScoreText, playerTwoScore);
+            uiManager.UpdateScoreText(playerNumber, playerTwoScore);
             ball.ResetPosition();
          }
       }
-   
-      private void UpdateScoreText(TMP_Text scoreText, int score)
-      {
-         scoreText.text = score.ToString();
-      }
-   
-      public void ResetScore()
-      {
-         playerOneScore = 0;
-         playerTwoScore = 0;
-         UpdateScoreText(playerOneScoreText, playerOneScore);
-         UpdateScoreText(playerTwoScoreText, playerTwoScore);
-      }
+      
+      // public void ResetScore(int playerNumber)
+      // {
+      //    playerOneScore = 0;
+      //    playerTwoScore = 0;
+      //    uiManager.UpdateScoreText(1, playerOneScore);
+      //    uiManager.UpdateScoreText(2, playerTwoScore);
+      // }
    }
 }
