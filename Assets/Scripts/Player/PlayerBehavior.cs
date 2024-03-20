@@ -7,6 +7,7 @@ namespace Player
         [SerializeField] private PaddleDrag paddleDrag;
         [SerializeField] private KeyCode upKey;
         [SerializeField] private KeyCode downKey;
+        [SerializeField] private int paddleId;
         [SerializeField] private float speed;
         [SerializeField] private float yLimit;
 

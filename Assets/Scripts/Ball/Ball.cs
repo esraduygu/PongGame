@@ -6,21 +6,23 @@ namespace Ball
 {
     public class Ball : MonoBehaviour
     {
+        [SerializeField] private UIManager uiManager;
         [SerializeField] private SfxManager sfxManager;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float speed;
-        
-        private void Start()
+
+        private void Awake()
         {
-            ResetPosition();
+            uiManager.OnStartGame += ResetPosition;
         }
-        
+
         public void ResetPosition()
         {
             rb.position = Vector2.zero;
             rb.velocity = Vector2.zero;
             
             Invoke(nameof(Launch), 0.5f);
+            
         }
         
         private void Launch()
