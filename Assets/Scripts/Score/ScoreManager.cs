@@ -6,6 +6,7 @@ namespace Score
    public class ScoreManager : MonoBehaviour
    {
       [SerializeField] private UIManager uiManager;
+      [SerializeField] private SfxManager sfxManager;
       [SerializeField] private Ball.Ball ball;
       
       [SerializeField] private int playerOneScore;
@@ -47,6 +48,7 @@ namespace Score
          if (winnerID != 0)
          {
             uiManager.OnGameEnds(winnerID);
+            sfxManager.PlaySound(SfxManager.SfxType.Win);
          }
          else
          {
