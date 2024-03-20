@@ -3305,7 +3305,7 @@ MonoBehaviour:
   ball: {fileID: 2075094131}
   playerOneScore: 0
   playerTwoScore: 0
-  maxScore: 11
+  maxScore: 2
 --- !u!4 &1645591239
 Transform:
   m_ObjectHideFlags: 0

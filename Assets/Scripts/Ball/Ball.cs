@@ -22,7 +22,6 @@ namespace Ball
             rb.velocity = Vector2.zero;
             
             Invoke(nameof(Launch), 0.5f);
-            
         }
         
         private void Launch()

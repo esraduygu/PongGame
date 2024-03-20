@@ -11,21 +11,32 @@ namespace Score
       [SerializeField] private int playerOneScore;
       [SerializeField] private int playerTwoScore;
       [SerializeField] public int maxScore;
-   
+
+      private void Awake()
+      {
+         uiManager.OnStartGame += OnStartGame;
+      }
+
+      private void OnStartGame()
+      {
+         ResetScore();
+         uiManager.UpdateScoreText(1, playerOneScore);
+         uiManager.UpdateScoreText(2, playerTwoScore);
+      }
+
       public void PlayerScored(int id)
       {
          if (id == 1)
          {
             playerOneScore++;
             uiManager.UpdateScoreText(1, playerOneScore);
-            ball.ResetPosition();
          }
          else if (id == 2)
          {
             playerTwoScore++;
             uiManager.UpdateScoreText(2, playerTwoScore);
-            ball.ResetPosition();
          }
+
          CheckWin();
       }
 
@@ -37,14 +48,16 @@ namespace Score
          {
             uiManager.OnGameEnds(winnerID);
          }
+         else
+         {
+            ball.ResetPosition();
+         }
       }
 
-      // public void ResetScore(int playerNumber)
-      // {
-      //    playerOneScore = 0;
-      //    playerTwoScore = 0;
-      //    uiManager.UpdateScoreText(1, playerOneScore);
-      //    uiManager.UpdateScoreText(2, playerTwoScore);
-      // }
+      private void ResetScore()
+      {
+         playerOneScore = 0;
+         playerTwoScore = 0;
+      }
    }
 }
