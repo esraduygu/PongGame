@@ -3493,7 +3493,7 @@ MonoBehaviour:
   ball: {fileID: 2075094131}
   playerOneScore: 0
   playerTwoScore: 0
-  maxScore: 11
+  maxScore: 2
 --- !u!4 &1645591239
 Transform:
   m_ObjectHideFlags: 0
@@ -3978,12 +3978,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e80ab0d9e1d104394cade88beac648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1816985686}
   playerOneScoreText: {fileID: 252263053}
   playerTwoScoreText: {fileID: 134101987}
   winText: {fileID: 1095390841}
   playModeButtonText: {fileID: 300513713}
   menuObject: {fileID: 1906199959}
-  gameManager: {fileID: 1816985686}
 --- !u!1 &1929462960
 GameObject:
   m_ObjectHideFlags: 0

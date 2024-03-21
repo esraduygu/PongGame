@@ -6,6 +6,7 @@ namespace Core
     public class GameManager : MonoBehaviour
     {
         public Action OnStartGame;
+        public Action<int> OnGameEnds;
         public PlayMode playMode;
         public Action OnModeChange;
         
@@ -18,6 +19,11 @@ namespace Core
         public void StartGame()
         {
             OnStartGame?.Invoke();
+        }
+
+        public void EndGame(int winnerID)
+        {
+            OnGameEnds?.Invoke(winnerID);
         }
 
         public void SwitchPlayMode()

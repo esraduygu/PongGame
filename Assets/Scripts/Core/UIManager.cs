@@ -6,20 +6,28 @@ namespace Core
 {
     public class UIManager : MonoBehaviour
     {
-        // public Action OnStartGame;
-        
-        public TMP_Text playerOneScoreText;
-        public TMP_Text playerTwoScoreText;
-        public TMP_Text winText;
-        public TMP_Text playModeButtonText;
-        public GameObject menuObject;
-
         [SerializeField] private GameManager gameManager;
-        
-        public void OnStartGameButtonClicked()
+        [SerializeField] private TMP_Text playerOneScoreText;
+        [SerializeField] private TMP_Text playerTwoScoreText;
+        [SerializeField] private TMP_Text winText;
+        [SerializeField] private TMP_Text playModeButtonText;
+        [SerializeField] private GameObject menuObject;
+
+        private void Awake()
+        {
+            gameManager.OnGameEnds += ShowWinnerText;
+        }
+
+        private void OnStartGameButtonClicked()
         {
             menuObject.SetActive(false);
             gameManager.StartGame();
+        }
+        
+        private void ShowWinnerText(int winnerID)
+        {
+            menuObject.SetActive(true);
+            winText.text = $"Player {winnerID} wins!";
         }
         
         public void UpdateScoreText(int playerNumber, int score)
@@ -28,12 +36,6 @@ namespace Core
             scoreText.text = score.ToString();
         }
         
-        public void OnGameEnds(int winnerID)
-        {
-            menuObject.SetActive(true);
-            winText.text = $"Player {winnerID} wins!";
-        }
-
         public void OnSwitchModeClicked()
         {
             gameManager.SwitchPlayMode();

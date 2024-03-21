@@ -49,7 +49,7 @@ namespace Score
 
          if (winnerID != 0)
          {
-            uiManager.OnGameEnds(winnerID);
+            gameManager.EndGame(winnerID);
             sfxManager.PlaySound(SfxManager.SfxType.Win);
          }
          else
