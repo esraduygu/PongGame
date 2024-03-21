@@ -21,6 +21,7 @@ namespace Score
       private void OnStartGame()
       {
          ResetScore();
+         
          uiManager.UpdateScoreText(1, playerOneScore);
          uiManager.UpdateScoreText(2, playerTwoScore);
       }
@@ -51,9 +52,7 @@ namespace Score
             sfxManager.PlaySound(SfxManager.SfxType.Win);
          }
          else
-         {
             ball.ResetPosition();
-         }
       }
 
       private void ResetScore()

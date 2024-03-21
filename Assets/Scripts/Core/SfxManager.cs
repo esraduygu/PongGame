@@ -18,10 +18,8 @@ namespace Core
         
         public void PlaySound(params SfxType[] sfxTypes)
         {
-            foreach (var sfxType in sfxTypes)
-            {
+            foreach (var sfxType in sfxTypes) 
                 audioSource.PlayOneShot(clips[(int)sfxType]);
-            }
         }
     }
 }

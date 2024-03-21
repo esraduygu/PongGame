@@ -15,14 +15,6 @@ namespace Ball
         {
             uiManager.OnStartGame += ResetPosition;
         }
-
-        public void ResetPosition()
-        {
-            rb.position = Vector2.zero;
-            rb.velocity = Vector2.zero;
-            
-            Invoke(nameof(Launch), 0.5f);
-        }
         
         private void Launch()
         {
@@ -32,19 +24,22 @@ namespace Ball
             var direction = new Vector2(x, y);
             rb.AddForce(direction * speed);
         }
+        
+        public void ResetPosition()
+        {
+            rb.position = Vector2.zero;
+            rb.velocity = Vector2.zero;
+            
+            Invoke(nameof(Launch), 0.5f);
+        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag("Paddle"))
-            {
+            if (collision.gameObject.CompareTag("Paddle")) 
                 sfxManager.PlaySound(SfxManager.SfxType.Paddle);
-            }
-            
-            if (collision.gameObject.CompareTag("Wall"))
-            {
+
+            if (collision.gameObject.CompareTag("Wall")) 
                 sfxManager.PlaySound(SfxManager.SfxType.Wall);
-            }
-            
         }
     }
 }

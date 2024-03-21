@@ -16,19 +16,18 @@ namespace Core
 
         [SerializeField] private GameManager gameManager;
         
-
-        public void UpdateScoreText(int playerNumber, int score)
-        {
-            var scoreText = playerNumber == 1 ? playerOneScoreText : playerTwoScoreText;
-            scoreText.text = score.ToString();
-        }
-
         public void OnStartGameButtonClicked()
         {
             menuObject.SetActive(false);
             OnStartGame?.Invoke();
         }
-
+        
+        public void UpdateScoreText(int playerNumber, int score)
+        {
+            var scoreText = playerNumber == 1 ? playerOneScoreText : playerTwoScoreText;
+            scoreText.text = score.ToString();
+        }
+        
         public void OnGameEnds(int winnerID)
         {
             menuObject.SetActive(true);
@@ -43,7 +42,7 @@ namespace Core
 
         private void AdjustPlayButtonText()
         {
-            switch (GameManager.playMode)
+            switch (gameManager.playMode)
             {
                 case GameManager.PlayMode.PlayerVsPlayer:
                     playModeButtonText.text = "2 Players";

@@ -10,6 +10,7 @@ namespace Player
         [SerializeField] private PaddleDrag paddleDrag;
         [SerializeField] private KeyCode upKey;
         [SerializeField] private KeyCode downKey;
+        
         [SerializeField] private int paddleId;
         [SerializeField] private float speed;
         [SerializeField] private float yLimit;
@@ -81,16 +82,12 @@ namespace Player
         private void PlayerMove()
         {
             var moveDirection = 0f;
-            
+
             if (Input.GetKey(upKey) && transform.position.y < yLimit)
-            {
                 moveDirection = 1f;
-            }
-            else if (Input.GetKey(downKey) && transform.position.y > -yLimit)
-            {
+            else if (Input.GetKey(downKey) && transform.position.y > -yLimit) 
                 moveDirection = -1f;
-            }
-            
+
             PaddleMove(moveDirection);
         }
 

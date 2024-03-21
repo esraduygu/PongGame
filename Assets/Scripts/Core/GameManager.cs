@@ -5,7 +5,7 @@ namespace Core
 {
     public class GameManager : MonoBehaviour
     {
-        public static PlayMode playMode;
+        public PlayMode playMode;
         public Action OnModeChange;
         
         public enum PlayMode
@@ -34,7 +34,6 @@ namespace Core
         public bool IsPlayerTwoAi()
         {
             return playMode == PlayMode.PlayerVsAi;
-            
         }
     }
 }
