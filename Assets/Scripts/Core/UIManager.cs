@@ -7,7 +7,7 @@ namespace Core
     public class UIManager : MonoBehaviour
     {
         public Action OnStartGame;
-
+        
         public TMP_Text playerOneScoreText;
         public TMP_Text playerTwoScoreText;
         public TMP_Text winText;
@@ -15,6 +15,7 @@ namespace Core
         public GameObject menuObject;
 
         [SerializeField] private GameManager gameManager;
+        
 
         public void UpdateScoreText(int playerNumber, int score)
         {

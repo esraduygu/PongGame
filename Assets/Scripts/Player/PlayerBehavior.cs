@@ -31,6 +31,8 @@ namespace Player
 
         private void OnPaddleDrag(float delta)
         {
+            if (!enabled)
+                return;
             _delta += delta;
         }
         
@@ -50,6 +52,12 @@ namespace Player
         
         private void LateUpdate()
         {
+            if (gameManager.IsPlayerTwoAi())
+            {
+                _delta = 0f;
+                return;
+            }
+
             MoveByDelta();
 
             var delta = Mathf.Abs(_posBeforeFrame - transform.position.y);
@@ -90,7 +98,6 @@ namespace Player
         {
             transform.Translate(Vector3.up * (moveDirection * speed * Time.deltaTime));
         }
-        
         
         private void MoveByDelta()
         {
