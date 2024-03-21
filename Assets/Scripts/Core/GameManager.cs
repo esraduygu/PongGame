@@ -5,6 +5,7 @@ namespace Core
 {
     public class GameManager : MonoBehaviour
     {
+        public Action OnStartGame;
         public PlayMode playMode;
         public Action OnModeChange;
         
@@ -13,7 +14,12 @@ namespace Core
             PlayerVsPlayer,
             PlayerVsAi
         }
-        
+
+        public void StartGame()
+        {
+            OnStartGame?.Invoke();
+        }
+
         public void SwitchPlayMode()
         {
             switch (playMode)

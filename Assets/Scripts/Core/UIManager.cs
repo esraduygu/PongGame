@@ -6,7 +6,7 @@ namespace Core
 {
     public class UIManager : MonoBehaviour
     {
-        public Action OnStartGame;
+        // public Action OnStartGame;
         
         public TMP_Text playerOneScoreText;
         public TMP_Text playerTwoScoreText;
@@ -19,7 +19,7 @@ namespace Core
         public void OnStartGameButtonClicked()
         {
             menuObject.SetActive(false);
-            OnStartGame?.Invoke();
+            gameManager.StartGame();
         }
         
         public void UpdateScoreText(int playerNumber, int score)

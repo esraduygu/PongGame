@@ -2530,9 +2530,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2626858308ad7f84ab5cd68211c33d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1816985686}
   playerOne: {fileID: 916163576}
   playerTwo: {fileID: 1929462963}
-  uiManager: {fileID: 1927751023}
 --- !u!1 &1067371629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,6 +3487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ef998562af5484897b715a85558640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1816985686}
   uiManager: {fileID: 1927751023}
   sfxManager: {fileID: 854327676}
   ball: {fileID: 2075094131}
@@ -3671,6 +3672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45873ac2fe081564085435b7ee5728c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playMode: 0
 --- !u!4 &1816985687
 Transform:
   m_ObjectHideFlags: 0
@@ -4317,6 +4319,10 @@ PrefabInstance:
       propertyPath: sfxManager
       value: 
       objectReference: {fileID: 854327676}
+    - target: {fileID: 8290067558652587959, guid: 32bb4652410c8bb4ebb0b5c23d562533, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1816985686}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

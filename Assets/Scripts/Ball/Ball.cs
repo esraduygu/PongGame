@@ -6,14 +6,14 @@ namespace Ball
 {
     public class Ball : MonoBehaviour
     {
-        [SerializeField] private UIManager uiManager;
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private SfxManager sfxManager;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float speed;
 
         private void Awake()
         {
-            uiManager.OnStartGame += ResetPosition;
+            gameManager.OnStartGame += ResetPosition;
         }
         
         private void Launch()

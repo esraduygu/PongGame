@@ -5,6 +5,7 @@ namespace Score
 {
    public class ScoreManager : MonoBehaviour
    {
+      [SerializeField] private GameManager gameManager;
       [SerializeField] private UIManager uiManager;
       [SerializeField] private SfxManager sfxManager;
       [SerializeField] private Ball.Ball ball;
@@ -15,7 +16,7 @@ namespace Score
 
       private void Awake()
       {
-         uiManager.OnStartGame += OnStartGame;
+         gameManager.OnStartGame += OnStartGame;
       }
 
       private void OnStartGame()

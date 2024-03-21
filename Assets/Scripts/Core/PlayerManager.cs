@@ -5,13 +5,13 @@ namespace Core
 {
     public class PlayerManager : MonoBehaviour
     {
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private PlayerBehavior playerOne;
         [SerializeField] private PlayerBehavior playerTwo;
-        [SerializeField] private UIManager uiManager;
-        
+
         private void Awake()
         {
-            uiManager.OnStartGame += EnablePlayers;
+            gameManager.OnStartGame+= EnablePlayers;
         }
 
         private void EnablePlayers()
