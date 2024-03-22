@@ -36,7 +36,6 @@ namespace Core
                 case PlayMode.PlayerVsAi:
                     playMode = PlayMode.PlayerVsPlayer;
                     break;
-                
             }
         }
         

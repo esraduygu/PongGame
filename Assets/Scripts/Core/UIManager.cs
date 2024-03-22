@@ -12,7 +12,6 @@ namespace Core
         [SerializeField] private TMP_Text playerTwoScoreText;
         [SerializeField] private TMP_Text winText;
         [SerializeField] private TMP_Text playModeButtonText;
-        [SerializeField] private TMP_Text exitText;
 
         private void Awake()
         {
