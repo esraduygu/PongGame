@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 namespace Core
@@ -11,6 +12,7 @@ namespace Core
         [SerializeField] private TMP_Text playerTwoScoreText;
         [SerializeField] private TMP_Text winText;
         [SerializeField] private TMP_Text playModeButtonText;
+        [SerializeField] private TMP_Text exitText;
         [SerializeField] private GameObject menuObject;
 
         private void Awake()
@@ -53,8 +55,16 @@ namespace Core
                 case GameManager.PlayMode.PlayerVsAi:
                     playModeButtonText.text = "Player vs AI";
                     break;
-
             }
+        }
+        
+        public void OnExitButtonClicked()
+        {
+#if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+#elif UNITY_STANDALONE_WIN
+            Application.Quit();
+#endif
         }
     }
 }
