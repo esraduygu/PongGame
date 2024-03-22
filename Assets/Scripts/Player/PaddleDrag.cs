@@ -6,7 +6,6 @@ namespace Player
     public class PaddleDrag : MonoBehaviour
     {
         public Action<float> OnDrag;
-        
         private Camera _camera;
         private float _lastPosition;
 

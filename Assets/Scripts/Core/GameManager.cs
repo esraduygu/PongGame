@@ -8,8 +8,7 @@ namespace Core
         public Action OnStartGame;
         public Action<int> OnGameEnds;
         public PlayMode playMode;
-        public Action OnModeChange;
-        
+
         public enum PlayMode
         {
             PlayerVsPlayer,
@@ -39,8 +38,6 @@ namespace Core
                     break;
                 
             }
-            
-            OnModeChange?.Invoke();
         }
         
         public bool IsPlayerTwoAi()

@@ -7,7 +7,6 @@ namespace Score
     {
         [SerializeField] private SfxManager sfxManager;
         [SerializeField] private ScoreManager scoreManager;
-        
         [SerializeField] private bool isLeftWall;
     
         private void OnTriggerEnter2D(Collider2D collision)

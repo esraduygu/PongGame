@@ -9,10 +9,9 @@ namespace Score
       [SerializeField] private UIManager uiManager;
       [SerializeField] private SfxManager sfxManager;
       [SerializeField] private Ball.Ball ball;
-      
       [SerializeField] private int playerOneScore;
       [SerializeField] private int playerTwoScore;
-      [SerializeField] public int maxScore;
+      [SerializeField] private int maxScore;
 
       private void Awake()
       {

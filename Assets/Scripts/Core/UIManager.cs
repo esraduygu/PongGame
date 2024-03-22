@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -8,12 +7,12 @@ namespace Core
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private GameManager gameManager;
+        [SerializeField] private GameObject menuObject;
         [SerializeField] private TMP_Text playerOneScoreText;
         [SerializeField] private TMP_Text playerTwoScoreText;
         [SerializeField] private TMP_Text winText;
         [SerializeField] private TMP_Text playModeButtonText;
         [SerializeField] private TMP_Text exitText;
-        [SerializeField] private GameObject menuObject;
 
         private void Awake()
         {

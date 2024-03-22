@@ -10,11 +10,10 @@ namespace Player
         [SerializeField] private PaddleDrag paddleDrag;
         [SerializeField] private KeyCode upKey;
         [SerializeField] private KeyCode downKey;
-        
-        [SerializeField] private int paddleId;
         [SerializeField] private float speed;
         [SerializeField] private float yLimit;
         [SerializeField] private float aiDeadZone = 1f;
+        [SerializeField] private int paddleId;
 
         private float _delta;
         private float _posBeforeFrame;
@@ -47,13 +46,9 @@ namespace Player
             _posBeforeFrame = transform.position.y;
 
             if (paddleId == 2 && gameManager.IsPlayerTwoAi())
-            {
                 MoveAI();
-            }
             else
-            {
                 PlayerMove();
-            }
         }
         
         private void LateUpdate()
