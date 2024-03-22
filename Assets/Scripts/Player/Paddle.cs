@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerBehavior : MonoBehaviour
+    public class Paddle : MonoBehaviour
     {
         [SerializeField] private GameManager gameManager;
         [SerializeField] private Ball.Ball ball;
@@ -22,12 +22,17 @@ namespace Player
         private void Awake()
         {
             paddleDrag.OnDrag = OnPaddleDrag;
-            gameManager.OnModeChange = ResetPosition;
         }
 
-        private void ResetPosition()
+        private void OnEnable()
+        {
+            gameManager.OnGameEnds += _ => ResetAndDisable();
+        }
+        
+        private void ResetAndDisable()
         {
             transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+            enabled = false;
         }
 
         private void OnPaddleDrag(float delta)
@@ -68,14 +73,14 @@ namespace Player
 
         private void MoveAI()
         {
-            var ballPos = ball.transform.position;
             var direction = 0;
-            
+            var ballPos = ball.transform.position;
+
             if (Mathf.Abs(ballPos.y - transform.position.y) > aiDeadZone)
             {
                 direction = ballPos.y > transform.position.y ? 1 : -1;
             }
-
+            
             PaddleMove(direction);
         }
         
@@ -105,6 +110,11 @@ namespace Player
             transform.position = new Vector3(transform.position.x, newPos, transform.position.z);
             
             _delta -= limitedDelta;
+        }
+        
+        private void OnDisable()
+        {
+            gameManager.OnGameEnds -= _ => ResetAndDisable();
         }
     }
 }
